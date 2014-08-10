@@ -223,8 +223,12 @@ fix_machine_id() {
 install_xbmc() {
 	sudo pacman -S xbmc 
 	# lirc
+	#13.1.4 does not come with a service.
+	pacaur -S xbmc-standalone-service
+	#write some extra settings https://wiki.archlinux.org/index.php/XBMC#Autostarting_at_boot
+	echo -e 'allowed_users = anybody\nneeds_root_rights = yes' > /etc/X11/Xwrapper.config
 	sudo systemctl enable xbmc
-	pacaur -S --asroot xbmc-addon-steam-launcher
+	pacaur -S xbmc-addon-steam-launcher
 
 	# firefox.sh /usr/bin/xinit /usr/bin/firefox -- :0 -nolisten tcp
 
@@ -271,13 +275,13 @@ EOF
 }
 
 setup_ice() {
-# pacaur -Sa steam-ice
-# sudo -u steam steam-ice
-# pacman -S libstdc++5 lib32-libstdc++5
+ pacaur -Sa steam-ice
+ sudo -u steam steam-ice
+ pacman -S libstdc++5 lib32-libstdc++5
 }
 
 share_dirs() {
-# smb.conf to world write /var/lib/steam as user:steam & /var/lib/xbmc as user:xbmc
+ smb.conf to world write /var/lib/steam as user:steam & /var/lib/xbmc as user:xbmc
 }
 
 check_whiptail
