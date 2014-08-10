@@ -295,7 +295,7 @@ install_network_daemon() {
 		1)
 			echo "## installing networkmanager"
 			pacstrap $mountpoint networkmanager
-			arch_chroot "systemctl enable NetworkManager && systemctl enable NetworkManager-dispatcher.service && systemctl enable ModemManager.service"
+			arch_chroot "systemctl enable NetworkManager && systemctl enable NetworkManager-dispatcher.service"
 			enable_networkmanager=true
 		;;
     	2)
