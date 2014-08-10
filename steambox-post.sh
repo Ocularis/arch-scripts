@@ -226,7 +226,7 @@ install_xbmc() {
 	#13.1.4 does not come with a service.
 	pacaur -S xbmc-standalone-service
 	#write some extra settings https://wiki.archlinux.org/index.php/XBMC#Autostarting_at_boot
-	echo -e 'allowed_users = anybody\nneeds_root_rights = yes' > /etc/X11/Xwrapper.config
+	sudo echo -e 'allowed_users = anybody\nneeds_root_rights = yes' > /etc/X11/Xwrapper.config
 	sudo systemctl enable xbmc
 	pacaur -S xbmc-addon-steam-launcher
 
