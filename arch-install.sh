@@ -20,12 +20,12 @@ set_variables() {
 	echo "## defining variables for installation"
 
 	# cat /etc/locale.gen | grep -oP "^#\K[a-zA-Z0-9@._-]+"
-	locale=$(whiptail --nocancel --inputbox "Set locale:" 10 40 "en_AU.UTF-8" 3>&1 1>&2 2>&3)
+	locale=$(whiptail --nocancel --inputbox "Set locale:" 10 40 "en_GB.UTF-8" 3>&1 1>&2 2>&3)
 
-	keyboard=$(whiptail --nocancel --inputbox "Set keyboard:" 10 40 "us" 3>&1 1>&2 2>&3)
-	zone=$(whiptail --nocancel --inputbox "Set zone:" 10 40 "Australia" 3>&1 1>&2 2>&3)
-	subzone=$(whiptail --nocancel --inputbox "Set subzone:" 10 40 "Melbourne" 3>&1 1>&2 2>&3)
-	country=$(whiptail --nocancel --inputbox "Set mirrorlist country code:" 10 40 "AU" 3>&1 1>&2 2>&3)
+	keyboard=$(whiptail --nocancel --inputbox "Set keyboard:" 10 40 "no" 3>&1 1>&2 2>&3)
+	zone=$(whiptail --nocancel --inputbox "Set zone:" 10 40 "Europe" 3>&1 1>&2 2>&3)
+	subzone=$(whiptail --nocancel --inputbox "Set subzone:" 10 40 "Norway" 3>&1 1>&2 2>&3)
+	country=$(whiptail --nocancel --inputbox "Set mirrorlist country code:" 10 40 "NO" 3>&1 1>&2 2>&3)
 
 	new_uuid=$(cat /dev/urandom | tr -dc 'a-z' | fold -w 6 | head -n 1)
 	hostname=$(whiptail --nocancel --inputbox "Set hostname:" 10 40 "arch-$new_uuid" 3>&1 1>&2 2>&3)
